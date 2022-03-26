@@ -9,7 +9,7 @@ $(PROJ):$(SRC)
 	swipl --stand_alone=true -q -g main -o $(PROJ) -c $(SRC)
 
 run:$(PROJ)
-	./$(PROJ) < test.txt
+	./$(PROJ) < test2.in
 
 clean:
 	rm -rf $(PROJ) $(ZIP)
