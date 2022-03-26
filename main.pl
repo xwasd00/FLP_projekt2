@@ -71,12 +71,12 @@ print_cycles([H|T]) :-
  */
 print_cycle([edge(A,B)|T]) :-
    write(A),
-   write("-"),
+   write('-'),
    write(B),
    (T = [] ->
       nl
       ;
-      write(" "),
+      write(' '),
       print_cycle(T)
    ).
 
@@ -107,8 +107,10 @@ parse_points_edges([H|T], Points) :-
  * @param      Pair  List of two values - points
  */
 get_edge(Str, [A,B]) :-
-   split_string(Str, ' ', ' ', [A,B]),
+   atomic_list_concat([A,B], ' ', Str),
    assertz(edge(A,B)).
+
+%TODO: split_string - neni na merlinu
 
 /**
  * append_unique(+List1, +List2, -List3).
