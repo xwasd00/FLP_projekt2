@@ -2,6 +2,7 @@ SRC=*.pl
 PROJ=flp21-log
 LOGIN=xsovam00
 ZIP=flp-fun-$(LOGIN).zip
+TESTDIR=test/
 
 .PHONY:$(PROJ)
 
@@ -9,10 +10,10 @@ $(PROJ):$(SRC)
 	swipl --stand_alone=true -q -g main -o $(PROJ) -c $(SRC)
 
 run:$(PROJ)
-	./$(PROJ) < test2.in
+	./$(PROJ) < $(TESTDIR)test1.in
 
 clean:
 	rm -rf $(PROJ) $(ZIP)
 
 pack: clean
-	zip -r $(ZIP) $(SRC) README.md Makefile
+	zip -r $(ZIP) $(SRC) README.md Makefile $(TESTDIR)
